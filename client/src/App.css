@@ -1,42 +1,94 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.App{
+  background-color: bisque;
+  color: black;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   padding: 2rem;
+  border-radius: 1rem;
+  height: 90vh;
+  width: 80vw;
+}
+.App > h1{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background-color:#10B981;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+}
+section > h3{
+  font-weight: 400;
+  text-decoration: underline;
+  font-family: sans-serif;
+  margin-bottom: 1rem;
+}
+section{
+  padding: 1.5rem;
+}
+input{
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  width: 20rem;
+  height: 2rem;
+  padding: 3px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1.5px solid black;
+}
+select{
+ padding: 10px;
+ width: 140px;
+}
+label{
+  margin-right: 1rem;
+}
+option{
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#first_section{
+  display: grid;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.input-container{
+  display: grid;
+  grid-template-rows: (2, 1fr);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#top-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 10px;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#bottom-row{
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
+  margin: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.button-container{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 2rem;
 }
-
-.card {
-  padding: 2em;
+#cancel-btn{
+  background-color: white;
+  border: 2px solid #F43F5E;
+  color: #F43F5E;
 }
-
-.read-the-docs {
-  color: #888;
+#submit-btn{
+  background-color: #2F7D31;
+  color: white;
 }
