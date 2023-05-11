@@ -8,6 +8,12 @@ export const InitialInput = {
   emergency_contact_no: null,
   id_type: null,
   issued_id: null,
+  address: null,
+  gurdian_name: null,
+  gurdian_relation: null,
+  state: null,
+  city: null,
+  country: null,
 };
 export const testSchema = yup.object().shape({
   issue_id_type: yup.mixed().oneOf(["Adhar", "PAN"]),

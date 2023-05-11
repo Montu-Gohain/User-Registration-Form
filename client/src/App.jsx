@@ -1,13 +1,16 @@
 import "./App.css";
-// import RegistrationForm from "./components/RegistrationForm";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RegistrationForm from "./components/RegistrationForm";
 import UserTable from "./components/UserTable";
 
 const App = () => {
   return (
-    <div>
-      {/* <RegistrationForm /> */}
-      <UserTable />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<RegistrationForm />} />
+        <Route path="/users" element={<UserTable />} />
+      </Routes>
+    </Router>
   );
 };
 
