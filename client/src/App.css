@@ -10,7 +10,7 @@ html,body{
   flex-direction: column;
 }
 .App{
-  background-color: bisque;
+  background-color: #FFEDD5;
   color: black;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   padding: 2rem;
@@ -18,16 +18,17 @@ html,body{
   height: 90vh;
   width: 80vw;
 }
-.App > h1{
+ h1{
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  background-color:#10B981;
+  background-color:#27272A;
   border-radius: 5px;
-  color: white;
+  color: #CFFAFE;
   padding: 5px;
 }
 section > h3{
-  font-weight: 400;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
   text-decoration: underline;
   font-family: sans-serif;
   margin-bottom: 1rem;
@@ -36,25 +37,29 @@ section{
   padding: 1.5rem;
 }
 input{
-  color: black;
+  color: rgb(11, 10, 10);
   background-color: white;
-  border: 1px solid black;
   width: 20rem;
   height: 2rem;
   padding: 3px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 1.5px solid black;
 }
 select{
  padding: 10px;
  width: 140px;
+ background-color: #3B82F6;
+ border: none;
+ text-align: center;
+ border-radius: 5px;
+}
+select>option{
+  padding: 10px;
 }
 label{
   margin-right: 1rem;
-}
-option{
-  text-align: center;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
 }
 #first_section{
   display: grid;
@@ -91,4 +96,7 @@ option{
 #submit-btn{
   background-color: #2F7D31;
   color: white;
+}
+span{
+  color: red;
 }

@@ -1,57 +1,48 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import "./App.css";
+import "../App.css";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { InitialInput, UserSchema } from "../helpers/SchemaValidation";
 
 const POST_URL = "http://localhost:6060/api/users";
 
 const RegistrationForm = () => {
-  const { register, handleSubmit, reset } = useForm({
-    defaultValues: {
-      name: null,
-      dobOrAge: null,
-      sex: null,
-      mobile_no: null,
-      id_type: null,
-      issued_id: null,
-      gurdian_relation: null,
-      gurdian_name: null,
-      email: null,
-      emergency_contact_no: null,
-      address: null,
-      state: null,
-      city: null,
-      country: null,
-      pincode: null,
-      occupation: null,
-      religion: null,
-      marital_status: null,
-      nationality: null,
-      blood_group: null,
-    },
+  // Handing input values , errors and handlesubmit using useForm hook
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(UserSchema),
+    defaultValues: InitialInput,
   });
-  function ISO_Date(dob) {
-    return dob.split("/").reverse().join("-");
+
+  function Get_age(dob) {
+    if (dob.length > 3) {
+      let age = dob.split("/");
+      return new Date().getUTCFullYear() - age[2];
+    } else return parseInt(dob);
   }
   function formSubmit(data, e) {
     e.preventDefault();
-    // console.log("Form submission successful.", {
-    //   ...data,
-    //   dobOrAge: ISO_Date(data.dobOrAge),
-    // });
+    console.log(errors);
     axios
       .post(POST_URL, {
         ...data,
-        dobOrAge: ISO_Date(data.dobOrAge),
+        dobOrAge: Get_age(data.dobOrAge),
       })
       .then((res) => console.log(res))
+      .then(reset())
       .catch((err) => console.log(err.message));
-    reset();
   }
   function clear_form_inputs() {
     reset();
   }
+
   return (
     <div className="form-container">
+      <h1>Register Here</h1>
       <form onSubmit={handleSubmit(formSubmit)}>
         <section id="first_section">
           <h3>Personal Details</h3>
@@ -68,6 +59,7 @@ const RegistrationForm = () => {
                 className="text"
                 {...register("name")}
               />
+              {errors?.name && <span>{errors.name.message}</span>}
               <label htmlFor="dob">
                 Date of Birth or Age <span style={{ color: "red" }}>*</span>
               </label>
@@ -78,6 +70,7 @@ const RegistrationForm = () => {
                 className="text"
                 {...register("dobOrAge")}
               />
+              {errors?.dobOrAge && <span>{errors.dobOrAge.message}</span>}
               <label htmlFor="sex">
                 sex <span style={{ color: "red" }}>*</span>
               </label>
@@ -87,6 +80,7 @@ const RegistrationForm = () => {
                 <option value="Female">Female</option>
                 <option value="Others">Others</option>
               </select>
+              {errors?.sex && <span>{errors.sex.message}</span>}
             </div>
             <div id="bottom-row">
               <label htmlFor="mobile_no">Mobile</label>
@@ -96,13 +90,14 @@ const RegistrationForm = () => {
                 placeholder="Enter Mobile"
                 {...register("mobile_no")}
               />
+              {errors?.mobile_no && <span>{errors.mobile_no.message}</span>}
               <label htmlFor="govt_id_type">Govt Issued ID</label>
               <select
                 name="govt_id_type"
                 id="govt_id_type"
                 {...register("id_type")}
               >
-                <option value="">ID Type</option>
+                <option value=""></option>
                 <option value="Adhar">Adhar</option>
                 <option value="PAN">PAN</option>
               </select>
@@ -111,6 +106,7 @@ const RegistrationForm = () => {
                 placeholder="Enter GOVT ID"
                 {...register("issued_id")}
               />
+              {errors?.issued_id && <span>{errors.issued_id.message}</span>}
             </div>
           </div>
         </section>
@@ -148,6 +144,9 @@ const RegistrationForm = () => {
               name="ec_no"
               {...register("emergency_contact_no")}
             />
+            {errors?.emergency_contact_no && (
+              <span>{errors.emergency_contact_no.message}</span>
+            )}
           </div>
         </section>
         <section id="third_section">
@@ -215,6 +214,7 @@ const RegistrationForm = () => {
                 id="m_stat"
                 {...register("marital_status")}
               >
+                <option value=""></option>
                 <option value="Married">Married</option>
                 <option value="Single">Single</option>
               </select>
@@ -226,6 +226,7 @@ const RegistrationForm = () => {
                 id="b_group"
                 {...register("blood_group")}
               >
+                <option value=""></option>
                 <option value="A+">A +</option>
                 <option value="A-">A -</option>
                 <option value="O+">O +</option>

@@ -1,11 +1,12 @@
 import "./App.css";
-import RegistrationForm from "./RegistrationForm";
+// import RegistrationForm from "./components/RegistrationForm";
+import UserTable from "./components/UserTable";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>User Registration form in React</h1>
-      <RegistrationForm />
+    <div>
+      {/* <RegistrationForm /> */}
+      <UserTable />
     </div>
   );
 };
