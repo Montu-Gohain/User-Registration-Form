@@ -10,24 +10,28 @@ html,body{
   flex-direction: column;
 }
 .App{
-  background-color: bisque;
+  background-color: antiquewhite;
   color: black;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   padding: 2rem;
   border-radius: 1rem;
   height: 90vh;
   width: 80vw;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
 }
-.App > h1{
+ h1{
+  position: relative;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  background-color:#10B981;
+  background-color:#27272A;
   border-radius: 5px;
-  color: white;
+  color: #E2E8F0;
   padding: 5px;
 }
 section > h3{
-  font-weight: 400;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
   text-decoration: underline;
   font-family: sans-serif;
   margin-bottom: 1rem;
@@ -36,25 +40,30 @@ section{
   padding: 1.5rem;
 }
 input{
-  color: black;
+  color: rgb(11, 10, 10);
   background-color: white;
-  border: 1px solid black;
   width: 20rem;
+  border: 1px solid rgb(213, 205, 205);
   height: 2rem;
   padding: 3px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 1.5px solid black;
 }
 select{
  padding: 10px;
  width: 140px;
+ background-color: #3B82F6;
+ border: none;
+ text-align: center;
+ border-radius: 5px;
+}
+select>option{
+  padding: 10px;
 }
 label{
   margin-right: 1rem;
-}
-option{
-  text-align: center;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
 }
 #first_section{
   display: grid;
@@ -74,7 +83,8 @@ option{
   display: flex;
   justify-content: flex-start;
   gap: 3rem;
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 .button-container{
   display: flex;
@@ -91,4 +101,57 @@ option{
 #submit-btn{
   background-color: #2F7D31;
   color: white;
+}
+span{
+  color: red;
+}
+table{
+  background-color: #F0FDF4;
+  color: black;
+  padding: 2rem;
+  margin-bottom: 10vh;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px  rgba(93, 91, 91, 0.273);
+}
+thead{
+  background-color: #3B82F6;
+  color:  white;
+  border: none;
+}
+ th{
+  padding: 1rem;
+}
+td{
+  border: 1px solid slategray;
+  background-color: aliceblue;
+  padding: 1rem;
+}
+.route-links{
+  font-size: x-large;
+  text-decoration: none;
+  color: blue;
+}
+.route-links:hover{
+  text-decoration: underline;
+  color: #F43F5E;
+}
+caption{
+  position: relative;
+  background-color: #1E293B;
+  color: white;
+  padding: 1rem;
+  font-size: xx-large;
+  margin-top: 2rem;
+  margin-bottom: 21px;
+}
+.route-home{
+  font-size: x-large;
+  text-decoration: none;
+  position: absolute;
+  right: 20px;
+  color: #3B82F6;
+}
+.route-home:hover{
+  color: #F43F5E;
+  text-decoration: underline;
 }

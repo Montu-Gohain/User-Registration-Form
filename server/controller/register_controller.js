@@ -14,7 +14,7 @@ const Register_user = async (req, res, next) => {
       );
     }
     res.status(201).send({
-      msg: "User Registered successfully.",
+      msg: "Userdetails Saved Successfully.",
       data: new_user,
     });
   } catch (error) {

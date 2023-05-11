@@ -9,27 +9,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     dobOrAge: {
-      type: Date,
-      validate: {
-        validator: function (value) {
-          // Check if the value is a valid date
-          if (value instanceof Date && !isNaN(value)) {
-            return true;
-          }
-
-          // Check if the value is a valid age
-          const age = parseInt(value);
-          const maxAge = 150; // Maximum age to prevent invalid inputs
-          if (age > 0 && age < maxAge) {
-            const current_year = new Date().getUTCFullYear();
-
-            return true;
-          }
-
-          return false;
-        },
-        message: "Invalid date of birth or age",
-      },
+      type: String,
       required: true,
     },
     sex: {
@@ -72,7 +52,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
     },
     pincode: {
-      type: Number,
+      type: String,
     },
     // Other Details
     occupation: {
